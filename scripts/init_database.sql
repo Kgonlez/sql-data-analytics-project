@@ -4,75 +4,61 @@ Create Database and Tables
 ============================================================================
 Script Purpose:
   This script creates a new database named 'DataWarehoue' after checking is it already exists.
-  If the database exists, it is dropped and recreated. Additionally, the script sets up three 
-  table groups within the database: 'bronze', 'silver', and 'gold'.
+  If the database exists, it is dropped and recreated. Additionally, this script creates a schema called gold.
 
 WARNING:
-  Running this script will drop the entire 'DataWarehouse' database if it exists.
+  Running this script will drop the entire 'DataWarehouseAnalytics' database if it exists.
   All data in the database will be permanetly deleted. Process with caution and 
   ensure you have proper backups before runnung this script.
 */
 
---Create Database 'DataWarehouse'
-DROP DATABASE IF EXISTS DataWarehouse;
+--Create Database 'DataWarehouseAnalytics'
+DROP DATABASE IF EXISTS DataWarehouseAnalytics;
 
---Create the 'DataWarehouse' database
-CREATE DATABASE DataWarehouse;
-USE DataWarehouse;
+--Create the 'DataWarehouseAnalytics' database
+CREATE DATABASE DataWarehouseAnalytics;
+USE DataWarehouseAnalytics;
 
 --Create Tables
-DROP TABLE IF EXISTS bronze_crm_cust_info;
-CREATE TABLE bronze_crm_cust_info(
-    cst_id INT,
-    cst_key VARCHAR(50),
-    cst_firstname VARCHAR(50),
-    cst_lastname VARCHAR(50),
-    cst_marital_status VARCHAR(50),
-    cst_gender VARCHAR(50),
-    cst_create_date DATE
+DROP TABLE IF EXISTS gold.dim_customers;
+CREATE TABLE gold.dim_customers(
+  customer_key int,
+	customer_id int,
+	customer_number varchar(50),
+	first_name varchar(50),
+	last_name varchar(50),
+	country varchar(50),
+	marital_status varchar(50),
+	gender varchar(50),
+	birthdate date,
+	create_date date
 );
 
-DROP TABLE IF EXISTS bronze_crm_prd_info;
-CREATE TABLE bronze_crm_prd_info(
-    prd_id INT,
-    prd_key VARCHAR(50),
-    prd_nm VARCHAR(50),
-    prd_cost INT,
-    prd_line VARCHAR(50),
-    prd_start_dt DATE,
-    prd_end_dt DATE
+DROP TABLE IF EXISTS gold.dim_products;
+CREATE TABLE gold.dim_products(
+  product_key int,
+	product_id int,
+	product_number varchar(50) ,
+	product_name varchar(50) ,
+	category_id varchar(50) ,
+	category varchar(50) ,
+	subcategory varchar(50) ,
+	maintenance varchar(50) ,
+	cost int,
+	product_line varchar(50),
+	start_date date 
 );
 
-DROP TABLE IF EXISTS bronze_crm_sales_details;
-CREATE TABLE bronze_crm_sales_details(
-    sls_ord_num VARCHAR(50),
-    sls_prd_key VARCHAR(50),
-    sls_cust_id INT,
-    sls_order_dt INT,
-    sls_ship_dt INT,
-    sls_due_dt INT,
-    sls_sales INT,
-    sls_quant INT,
-    sls_price INT
+DROP TABLE IF EXISTS gold.fact_sales;
+CREATE TABLE gold.fact_sales(
+  order_number varchar(50),
+	product_key int,
+	customer_key int,
+	order_date date,
+	shipping_date date,
+	due_date date,
+	sales_amount int,
+	quantity tinyint,
+	price int 
 );
 
-DROP TABLE IF EXISTS bronze_erp_loc_a101;
-CREATE TABLE bronze_erp_loc_a101(
-    cid VARCHAR(50),
-    cntry VARCHAR(50)
-);
-
-DROP TABLE IF EXISTS bronze_erp_cust_az12;
-CREATE TABLE bronze_erp_cust_az12(
-    cid VARCHAR(50),
-    bdate DATE,
-    gen VARCHAR(50)
-);
-
-DROP TABLE IF EXISTS bronze_erp_px_cat_g1v2;
-CREATE TABLE bronze_erp_px_cat_g1v2(
-    id VARCHAR(50),
-    cat VARCHAR(50),
-    subcat VARCHAR(50),
-    maintenance VARCHAR(50)
-);
