@@ -1,23 +1,9 @@
-# Data Warehouse and Analytics Project
+#  SQL Analytics & Data Exploration
 
-Welcome to the **Data Warehouse and Analytics Project** repository!
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a 
-portfolio project it highlight industry best practices in data engineering and analytics. 
+Welcome to the **SQL Analytics & Data Exploration** repository!
+A curated collection of SQL scripts for data exploration, analysis, and reporting. This repository includes queries for database exploration, key metrics, time-based trends, cumulative analytics, customer segmentation, and more.
 
----
-
-## Project Requirements
-
-## Building the Data Warehouse (Data Engineering)
-## Objective
-Develop a modern data warehouse using MySQL server to consolidate sales data, enabling analytical reporting and informed decision-making.
-
-## Specifications
-- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
-- **Integration**: Combine both sources into a singlle, user-friendly data model designed for analytical queries.
-- **Scope**: Focus on the latest dataset only; historization of data not requires.
-- **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
+Designed for data analysts and BI professionals, these scripts provide structured approaches to analyzing relational databases, helping uncover insights efficiently. Each script follows best SQL practices and focuses on a specific analytical theme, making it a valuable resource for data-driven decision-making.
 
 ---
 
@@ -29,6 +15,6 @@ Develop SQL-based analytics to deliver detailed insights into:
 - **Product Behavior**
 - **Sales Trends**
 
-These insights empower stakeholder with key business metrcis, enabling strategic decision-making.
+These insights empower stakeholders with key business metrics, enabling strategic decision-making.
 
 ---
