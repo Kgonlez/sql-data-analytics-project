@@ -3,13 +3,13 @@
 Create Database and Tables
 ============================================================================
 Script Purpose:
-  This script creates a new database named 'DataWarehoue' after checking is it already exists.
+  This script creates a new database named 'DataWarehoueAnalytics' after checking if it already exists.
   If the database exists, it is dropped and recreated. Additionally, this script creates a schema called gold.
 
 WARNING:
   Running this script will drop the entire 'DataWarehouseAnalytics' database if it exists.
-  All data in the database will be permanetly deleted. Process with caution and 
-  ensure you have proper backups before runnung this script.
+  All data in the database will be permanently deleted. Process with caution and 
+  ensure you have proper backups before running this script.
 */
 
 --Create Database 'DataWarehouseAnalytics'
